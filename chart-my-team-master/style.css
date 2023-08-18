@@ -1,0 +1,153 @@
+/*
+cream: #F4E0CB;
+white: #F4F5F3
+green: #659667
+orange: #EF7D5A
+brown: #564036
+light brown: #A8927B
+blue: #516EBA
+yellow: #E3C247
+dark blue: #085B6F
+tooltipBrown: #A26E56;
+*/
+
+body {
+  font-family: 'Tahoma', serif;
+  text-align: center;
+  background-color: #F4E0CB;
+}
+
+.header {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.header div {
+  float: left;
+  padding-top: 10px;
+}
+
+h1 {
+  color: #659667;
+  font-weight: 700;
+  font-size: 33px;
+  letter-spacing: 0.1em;
+}
+
+.svgRacket {
+  fill: #659667;
+}
+
+.svgChart {
+  background-color: #F4F5F3;
+  border-radius: 20px;
+}
+
+.btnCustom {
+  margin: 3px;
+  color: #F4F5F3;
+  background-color: #AD8564;
+  font-size: 15px;
+  transition: all 0.3s ease-in-out;
+}
+
+.btnCustom:hover,
+.btnCustom:focus,
+.btnCustom:active,
+.active {
+  color: #F4F5F3;
+  background: #75AD77;
+}
+
+label {
+  font-weight: normal;
+  font-size: 16px;
+  color: #87684E;
+  padding-top: 6px;
+}
+
+.hidden {
+  display: none;
+}
+
+.teamName,
+.chartTitle,
+.chartFooter {
+  fill: #87684E;
+}
+
+.teamName {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.chartTitle {
+  font-size: 16px;
+}
+
+.chartFooter {
+  font-size: 11px;
+}
+
+.xAxis text,
+.yAxis text,
+.legend text {
+  fill: #4BA181;
+  font-size: 13px;
+}
+
+div.tooltip {
+  point-events: none;
+  position: absolute;
+  text-align: center;
+  padding: 8px;
+  font-size: 12px;
+  color: #085B6F;
+  background: #FFF7EE;
+  border: 2px solid #A26E56;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+@media (max-width: 920px){
+  /*on smaller screens, shrink the buttons & padding*/
+  .btnCustom {
+    font-size: 12px;
+  }
+  .btn-group-lg>.btn,
+  .btn-lg {
+    padding: 5px 10px;
+  }
+
+  /*Make the SVG responsive*/
+  .svgChart {
+    width: 95%;
+    height: 56%;
+  }
+
+  .headerRow h1{
+    font-size: 28px;
+  }
+
+  .svgRacket {
+    height: 60px;
+  }
+}
+
+@media (min-width: 768px){
+  /*on larger screens: move the form labels to the right
+  (instead of center) since inline w/ select*/
+  .col-form-label {
+    text-align: right;
+  }
+}
+
+@media (max-width: 400px) {
+  .headerRow h1 {
+    font-size: 25px;
+  }
+
+  .svgRacket {
+    display: none;
+  }
+}

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Information about {{ animal.name }}</h2>
+
+<p><b>About</b></p>
+<ul>
+    <li>Characteristics: 
+        {% for char in animal.tags %}
+            {{ char }}{% if not loop.last %}, {% endif %}
+        {% endfor %}
+    </li>
+    <li>Coat length: {{ animal.coat }}</li>
+    <li>House-trained:
+        {% if animal.attributes.house_trained == true %} 
+            yes
+        {% else %}
+            no
+        {% endif %}
+    </li>
+    <li>Health:
+        {% if animal.attributes.spayed_neutered == true %} 
+            spayed/neutered,
+        {% endif %}
+        {% if animal.attributes.shots_current %}
+            vaccinations are up to date
+        {% endif %}
+    </li>
+    <li>Good in a home with:
+        {% if animal.environment.children %}
+            children 
+        {% endif %}
+        {% if animal.environment.dogs %}
+            dogs 
+        {% endif %}
+        {% if animal.environment.cats %}
+            cats 
+        {% endif %}
+    </li>
+</ul>
+
+<p><b>Address:</b></p>
+{{ animal.contact.address.address1 }} <br>
+{% if animal.contact.address.address2 %}
+    {{ animal.contact.address.address2 }} <br>
+{% endif %}
+{{ animal.contact.address.city }}, {{ animal.contact.address.state }} <br>
+{{ animal.contact.address.postcode }}, {{ animal.contact.address.country }}
+
+
+{% endblock %}

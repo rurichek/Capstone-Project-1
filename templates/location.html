@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Enter Your location!</h1>
+
+<form action="/search" method="GET" id="location-form">
+    <!-- <label for="city">Location</label> -->
+    <!-- <label for="Location">Enter city and state, or a postal code</label> -->
+    <input placeholder="Farmington Hills, MI" id="location" name="location" value="" autofocus />
+  
+    <!-- Submit button -->
+    <button type="submit"  id="apply-location">Submit</button>
+  </form>
+
+{% endblock %}

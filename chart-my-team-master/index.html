@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chart My Team</title>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Custom stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!--racket image & header -->
+  <div class="header container-fluid">
+    <div class="row headerRow">
+      <div col-xs-2>
+        <svg class="svgRacket" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="80px" height="80px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve">
+          <g><g><g><path d="M921,890.1L740.9,687l0.6-0.4l-2.2-1.4l-42.4-47.8c-4.1-4.7-9-8.3-14.1-11.4c-23.9-37-48.3-95.4-49.7-180c7.1-25.4,10.5-52.7,9.8-81.5c-0.3-13.2-3.6-30.2-7.8-47.6c-10.3,5.6-21.3,9.6-32.7,12.7c13.7,82.6-8,161.2-66.4,208.3c-97.4,78.9-259.1,40.3-361.2-86C72.8,325.7,68.9,159.5,166.3,80.8c76-61.4,191-51.3,286.5,16c2.9-3.5,5.6-7.1,8.9-10.4c4.2-4.3,8.8-8,13.5-11.7c-39-27.7-70.4-42.4-70.4-42.4S342.5,8.2,293.9,10.1c-56.7,0-108.2,18-148.8,51.9c-111,93-107.9,280.1,6.9,417.2c64,76.3,152.1,123.7,239.3,130.5l0,1.4c1.2,0.1,112,6.2,210.8,98.7c1.6,2.4,3.2,4.9,5.2,7.1l224,252.9c21.9,24.8,59.8,27,84.7,5C940.8,952.9,943.1,915,921,890.1z M612.4,632.3c-11.9,10.5-18.5,24.6-19.8,39.2c-43.8-34.9-87.6-55.3-123.2-67c34.4-8,65.6-23.1,92.1-45.4c21.6-18,39-39.9,52.3-64.6c6.3,51.7,21,92.1,37.3,122.9C637.3,617.7,623.5,622.5,612.4,632.3z"/><path d="M437.3,189.2c28.3,3.3,58.4,17.8,83,42.4c24.7,24.7,39.2,54.9,42.4,83.1c25.8-2.4,51-13.5,70.7-33.3c19.8-19.7,30.9-44.9,33.2-70.6c-28.2-3.3-58.3-17.8-83-42.4c-24.7-24.7-39.1-54.8-42.4-83.1c-25.8,2.4-50.9,13.5-70.7,33.3C450.8,138.3,439.7,163.4,437.3,189.2z"/><path d="M667.1,196.5c-0.8-28.3-12-56.3-33.6-78c-21.6-21.5-49.7-32.8-78-33.7c3.2,24.8,16.3,51.4,38.3,73.4C615.8,180.2,642.4,193.3,667.1,196.5z"/><path d="M436.9,203.5c0.9,28.3,12,56.4,33.6,78c21.6,21.6,49.7,32.9,77.9,33.6c-3.1-24.7-16.3-51.3-38.3-73.3C488.2,219.8,461.6,206.7,436.9,203.5z"/></g></g></g>
+        </svg>
+      </div>
+      <div col-xs-10>
+        <h1>
+          Chart My Team
+        </h1>
+      </div>
+    </div>
+  </div>
+
+  <!--form-->
+  <div class='container-fluid'>
+    <div class="form-group row">
+      <div class="col-lg-3 col-lg-offset-2
+        col-md-2 col-md-offset-2
+        col-sm-3 col-sm-offset-1
+        col-xs-12
+        col-form-label">
+        <label class="hidden" id="selectTeamsLabel" 
+          for="selectTeams">
+          Choose a Team:
+        </label>
+      </div>
+      <div class="col-lg-3 col-lg-offset-0
+        col-md-6 col-md-offset-0
+        col-sm-7 col-sm-offset-0
+        col-xs-10 col-xs-offset-1"> 
+        <select class="form-control hidden" id="selectTeams">
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!--buttons-->
+  <div class='container-fluid'>
+    <p class="selectBtns">
+      <a class="active btn btn-lg btnCustom" href="" 
+        data-val="Matches">
+        # Won / Lost
+      </a>
+      <a class="btn btn-lg btnCustom" href="" 
+        data-val="Won">
+        # Won
+      </a>
+      <a class="btn btn-lg btnCustom" href="" 
+        data-val="Lost">
+        # Lost
+      </a>
+      <a class="btn btn-lg btnCustom" href="" 
+        data-val="WinPercentage">
+        Win %
+      </a>
+      <a class="btn btn-lg btnCustom" href="" 
+        data-val="SinglesDoubles">
+        # Singles / Doubles
+      </a>
+      <a class="btn btn-lg btnCustom" href="" 
+        data-val="Singles">
+        # Singles
+      </a>
+      <a class="btn btn-lg btnCustom" href="" 
+        data-val="Doubles">
+        # Doubles
+      </a>
+    </p>
+  </div>
+
+  <!--SVG Chart-->
+  <div>
+    <svg class="svgChart" preserveAspectRatio="xMinYMin meet" 
+    viewBox="0 0 900 500"></svg>
+  </div>
+
+  <script src="//d3js.org/d3.v4.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

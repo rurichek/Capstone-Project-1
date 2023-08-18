@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Saved pets for {{ user.first_name }}</h1>
+
+<div class="main">
+    <ul>
+      {% for pet in favorites_list %}
+        <li class="click-pet" data-name="{{pet.name}}" data-pet-id="{{ pet.id }}" data-organization-id="{{ pet.organization_id}}">
+          <form class="pets-like-saved">
+            <button class="
+              btn 
+              btn-sm 
+              {{'btn-primary' if pet.id in likes else 'btn-secondary'}}"
+              data-pet-id="{{ pet.id }}"
+              data-name="{{pet.name}}"
+              data-organization-id="{{ pet.organization_id }}"
+            >
+              <i class="fa fa-heart"></i> 
+            </button>
+          </form>
+          {% if pet.photos %}
+            <img src="{{ pet.primary_photo_cropped.full }}" alt="Photo of {{ pet.name }}">
+          {% else %}
+            <img src="https://g.petango.com/shared/Photo-Not-Available-dog.gif" alt="Photo of {{ pet.name }}">
+          {% endif %}
+          <div id="text">
+            <p>{{ pet.name }}</p>
+            <p>{{ pet.contact.address.city }}, {{ pet.contact.address.state }}</p>
+          <div>            
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+
+{% endblock %}

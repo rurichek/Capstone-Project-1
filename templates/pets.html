@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>See all the pets near {{ location }}</h1>
+
+<div id="search-container">
+  <!-- <div class="sidebar"> -->
+    <!-- <ul>
+    {% for pet in pets %}
+      <li>
+        <a href="/">{{ pet.id }}</a>
+      </li>
+    {% endfor %}
+    </ul> -->
+    <div class="sidebar">
+      <h2>Filters</h2>
+      <form id="filters" method="GET" action="/search">
+        <div>
+          <!-- <label for="animal_type">Animal Type</label>
+          <select id="animal_type" name="animal_type">
+            <option value="">Any</option>
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option> -->
+            <!-- Add more options as needed -->
+          <!-- </select>
+        </div> -->
+        <div>
+          <label for="animal_type">Animal Type</label>
+          <select id="animal_type" name="animal_type" class = "option">
+              <option value="" {% if session['animal_type']|default('') == '' %}selected{% endif %}>Any</option>
+              <option value="dog" {% if session['animal_type']|default('') == 'dog' %}selected{% endif %}>Dog</option>
+              <option value="cat" {% if session['animal_type']|default('') == 'cat' %}selected{% endif %}>Cat</option>
+              <!-- Add more options as needed -->
+          </select>
+      </div>
+      <div>
+        <label for="age">Age</label>
+        <select id="age" name="age">
+            <option value="" {% if session['age']|default('') == '' %}selected{% endif %}>Any</option>
+            <option value="baby" {% if session['age']|default('') == 'baby' %}selected{% endif %}>Baby</option>
+            <option value="young" {% if session['age']|default('') == 'young' %}selected{% endif %}>Young</option>
+            <option value="adult" {% if session['age']|default('') == 'adult' %}selected{% endif %}>Adult</option>
+            <option value="senior" {% if session['age']|default('') == 'senior' %}selected{% endif %}>Senior</option>
+        </select>
+    </div>
+    
+    <div>
+      <label for="gender">Gender</label>
+      <select id="gender" name="gender">
+          <option value="" {% if session['gender']|default('') == '' %}selected{% endif %}>Any</option>
+          <option value="male" {% if session['gender']|default('') == 'male' %}selected{% endif %}>Male</option>
+          <option value="female" {% if session['gender']|default('') == 'female' %}selected{% endif %}>Female</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="location">Location</label>
+      <input id="location" name="location" value="{{ session['location']|default('') }}">
+    </div>
+
+    <div>
+      <label for="distance">Distance</label>
+      <input id="distance" name="distance" value="{{ session['distance'] or 10 }}">
+    </div>
+
+    <!-- <div>
+      <label for="breed">Breed</label>
+      <select id="breed" name="breed">
+          {% if session['animal_type'] == 'dog' %}
+              {% for breed in breeds %}
+                  <option value="{{ breed['name'] }}" {% if session['breed']|default('') == breed['name'] %}selected{% endif %}>{{ breed['name'] }}</option>
+              {% endfor %}
+          {% elif session['animal_type'] == 'Any' %}
+              <option value="select type">select type</option>
+          {% endif %}
+      </select>
+  </div> -->
+  
+        <!-- Add more controls as needed -->
+        <button type="submit" id="apply-filters">Apply Filters</button>
+      </form>
+    </div>
+  </div>  
+
+
+  <div class="main">
+    <ul>
+      {% for animal in animals %}
+        <li class="click-pet" data-name="{{animal.name}}" data-pet-id="{{ animal.id }}" data-organization-id="{{ animal.organization_id}}">
+          <form class="pets-like">
+            <button class="
+              btn 
+              btn-sm 
+              {{'btn-primary' if animal.id in likes else 'btn-secondary'}}"
+              data-animal-id="{{ animal.id }}"
+              data-name="{{animal.name}}"
+              data-organization-id="{{ animal.organization_id }}"
+            >
+              <i class="fa fa-heart"></i> 
+            </button>
+          </form>
+          {% if animal.photos %}
+            <img src="{{ animal.primary_photo_cropped.small }}" alt="Photo of {{ animal.name }}">
+          {% else %}
+            <img src="https://g.petango.com/shared/Photo-Not-Available-dog.gif" alt="Photo of {{ animal.name }}">
+          {% endif %}
+          <div id="text">
+            <p>{{ animal.name }}</p>
+            <p>{{ animal.contact.address.city }}, {{ animal.contact.address.state }}</p>
+            <p>{{ animal.distance }} miles away</p>
+            <!-- <p>Pet id {{ animal.id }}</p>
+            <p>Pet organizaiton_id {{ animal.organization_id }}</p> -->
+          <div>            
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+
+{% endblock %}
