@@ -27,8 +27,6 @@ app.app_context().push()
 
 connect_db(app)
 
-# client_id = 'XGy5nVoH6i8sW3rwPSCUkVL5rga5Tu1ILH2BLxRmibR7xRxXPI'
-# client_secret = 'u7XaxsDc4B4BGmDY4TjNXZSxtMwnigeVtjTBt9kA'
 
 def get_petfinder_access_token(client_id, client_secret):
     url = 'https://api.petfinder.com/v2/oauth2/token'
