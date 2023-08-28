@@ -293,11 +293,19 @@ def saved():
         }
         response = requests.get(f'https://api.petfinder.com/v2/animals/{pet.api_pet_id}', headers=headers)
 
-        data = response.json()
+        if response.status_code == 200:
+            data = response.json()
 
-        animal = data["animal"]
+            animal = data["animal"]
 
-        favorites_list.append(animal)
+            favorites_list.append(animal)
+
+        else:
+            current_pet = pet.query.filter_by(api_pet_id = pet.api_pet_id).first()
+
+            db.session.delete(current_pet)
+            db.session.commit()
+
 
 
     return render_template('favorites.html', favorites=favorites, favorites_list=favorites_list, likes=likes, user=user)
